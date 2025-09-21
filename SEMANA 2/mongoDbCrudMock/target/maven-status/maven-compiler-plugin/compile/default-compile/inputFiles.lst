@@ -1,0 +1,6 @@
+/home/yal/xideral/mongoDbCrudMock/src/main/java/com/mongo/crud/main.java
+/home/yal/xideral/mongoDbCrudMock/src/main/java/com/mongo/crud/model/Jugador.java
+/home/yal/xideral/mongoDbCrudMock/src/main/java/com/mongo/crud/repository/JugadoresRepository.java
+/home/yal/xideral/mongoDbCrudMock/src/main/java/com/mongo/crud/rest/JugadorRest.java
+/home/yal/xideral/mongoDbCrudMock/src/main/java/com/mongo/crud/service/JugadorServiceImpl.java
+/home/yal/xideral/mongoDbCrudMock/src/main/java/com/mongo/crud/service/JugadoresService.java
