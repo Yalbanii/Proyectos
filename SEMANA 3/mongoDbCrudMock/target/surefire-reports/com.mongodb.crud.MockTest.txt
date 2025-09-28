@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.mongodb.crud.MockTest
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.686 s -- in com.mongodb.crud.MockTest
