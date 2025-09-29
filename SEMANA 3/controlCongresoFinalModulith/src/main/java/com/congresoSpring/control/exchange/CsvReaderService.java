@@ -72,4 +72,9 @@ public class CsvReaderService {
     public Integer getPuntos(Long conferenciaId) {
         return conferencePointsMap.getOrDefault(conferenciaId, 0);
         }
+
+        // 🚨 FALTA LEER CSV DE FREEBIES
+    // 🚨 FALTA LEER CSV DE EVENTOS ESPECIALS
+
+
 }

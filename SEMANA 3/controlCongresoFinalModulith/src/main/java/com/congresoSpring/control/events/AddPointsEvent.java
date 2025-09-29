@@ -4,7 +4,7 @@ import org.springframework.context.ApplicationEvent;
 
 //Acumulacion de puntos
 
-public class AddPointsEvent extends ApplicationEvent {
+public final class AddPointsEvent extends ApplicationEvent {
     private Long participantId;
     private Long idConferencia;
     private Integer pointsEarned;

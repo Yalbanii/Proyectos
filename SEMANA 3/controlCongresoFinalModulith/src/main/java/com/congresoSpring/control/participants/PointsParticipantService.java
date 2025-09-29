@@ -103,8 +103,7 @@ public class PointsParticipantService {
             participant.setSpecialEventAccess(true);
         participantRepository.save(participant);
         System.out.println("✅ El participante " + event.getParticipantId() + " desbloqueó su acceso VIP a los Eventos Especiales a las " + event.getLocalDateTime() + ". ¡FELICIDADES!");
-            System.out.println("✅ El participante " + event.getParticipantId() +
-                    " ha alcanzado " + participant.getSpecialEventAccessPoints() + " puntos y desbloqueó su acceso VIP a los Eventos Especiales. ¡FELICIDADES!");
+
         }
     }
 

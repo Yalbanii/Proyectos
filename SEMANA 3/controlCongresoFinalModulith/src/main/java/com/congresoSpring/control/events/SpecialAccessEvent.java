@@ -32,8 +32,7 @@ public final class SpecialAccessEvent {
         if (participant == null) return;
 
         // 1. Acumular los puntos especiales (si aplica, p.ej. si el congreso lo requiere)
-        // 🚨 IMPORTANTE: Necesitas una propiedad que guarde los puntos especiales.
-        // Asumiremos que los puntos ganados SIEMPRE suman a los puntos especiales.
+        // Se necesita una propiedad que guarde los puntos especiales!
         int currentSpecialPoints = participant.getSpecialEventAccessPoints() + event.getPointsEarned();
         participant.setSpecialEventAccessPoints(currentSpecialPoints);
 

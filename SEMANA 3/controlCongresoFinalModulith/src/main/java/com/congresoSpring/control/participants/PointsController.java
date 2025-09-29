@@ -92,9 +92,9 @@ public class PointsController {
         AddPointsEvent event = new AddPointsEvent(
                 // Argumento 1 (Object source): Generalmente 'this' (el objeto que dispara el evento)
                 this,
-                // Argumento 2 (Long participantId): El ID del path
+                // Argumento 2 (Long participantId): El ID del @path
                 participantId,
-                // Argumento 3 (Long idConferencia): El ID del RequestParam
+                // Argumento 3 (Long idConferencia): El ID del @RequestParam
                 conferenceId,
                 // Argumento 4 (Integer pointsEarned): Los puntos obtenidos
                 points
