@@ -2,6 +2,7 @@ package com.congresoSpring.control.participants;
 
 import com.congresoSpring.control.events.AddPointsEvent;
 import com.congresoSpring.control.exchange.CsvReaderService;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,11 +31,9 @@ public class PointsController {
             @RequestParam Integer totalPoints,// Este va a variar
             @RequestParam Integer age,
             @RequestParam String area,
-            //  @RequestParam boolean certificateReached = false;
-            @RequestParam Integer certificateReachedPoints,
-            //  @RequestParam boolean specialEventAccess = false;
-            @RequestParam Integer specialEventAccessPoints) {
-        Participant participant = pointsParticipantService.crearParticipante(name, lastName, nacionality, totalPoints, age, area, certificateReachedPoints, specialEventAccessPoints);
+            boolean certificateReached,
+            boolean specialEventAccess) {
+        Participant participant = pointsParticipantService.crearParticipante(name, lastName, nacionality, totalPoints, age, area, certificateReached, specialEventAccess);
         return ResponseEntity.ok(participant);
     }
 

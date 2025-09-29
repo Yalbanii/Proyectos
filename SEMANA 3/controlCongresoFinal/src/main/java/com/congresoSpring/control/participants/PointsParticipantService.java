@@ -8,7 +8,6 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -23,8 +22,8 @@ public class PointsParticipantService {
     }
 
     @Transactional
-    public Participant crearParticipante(String name,String lastName,String nacionality, Integer totalPoints,Integer  age,String  area, Integer  certificateReachedPoints,Integer specialEventAccessPoints) {
-        Participant participant = new Participant(name,lastName,nacionality, totalPoints, age, area, certificateReachedPoints, specialEventAccessPoints);
+    public Participant crearParticipante(String name,String lastName,String nacionality, Integer totalPoints,Integer  age,String  area, boolean certificateReached,  boolean specialEventAccess) {
+        Participant participant = new Participant(name,lastName,nacionality, totalPoints, age, area, certificateReached, specialEventAccess);
         return participantRepository.save(participant);
     }
 
@@ -86,12 +85,12 @@ public class PointsParticipantService {
 
         Participant participant = participantRepository.findById(event.getParticipantId())
                 .orElseThrow(() -> new RuntimeException("Participante no encontrado con ID: " + event.getParticipantId()));
-        if (participant.getCertificateReachedPoints() >= 25 && !participant.isCertificateReached()) {
+        if (participant.getTotalPoints() >= 25 && !participant.isCertificateReached()) {
             participant.setCertificateReached(true);
             participantRepository.save(participant);
             //UPDATE
             System.out.println("✅ El participante " + event.getParticipantId() +
-                    " ha alcanzado " + participant.getCertificateReachedPoints() + " puntos y desbloqueó su certificado a las " + event.getLocalDateTime() + ". ¡FELICIDADES!");
+                    " ha alcanzado " + participant.getTotalPoints() + " puntos y desbloqueó su certificado a las " + event.getLocalDateTime() + ". ¡FELICIDADES!");
         }
     }
     @EventListener
@@ -99,12 +98,11 @@ public class PointsParticipantService {
         Participant participant = participantRepository.findById(event.getParticipantId())
                 .orElseThrow(() -> new RuntimeException("Participante no encontrado con ID: " + event.getParticipantId()));
 
-        if (participant.getSpecialEventAccessPoints() >= 30 && !participant.isSpecialEventAccess()) {
+        if (participant.getTotalPoints() >= 30 && !participant.isSpecialEventAccess()) {
             participant.setSpecialEventAccess(true);
         participantRepository.save(participant);
         System.out.println("✅ El participante " + event.getParticipantId() + " desbloqueó su acceso VIP a los Eventos Especiales a las " + event.getLocalDateTime() + ". ¡FELICIDADES!");
 
         }
     }
-
 }

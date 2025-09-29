@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Data
 @Entity
 @Table(name = "participantes")
@@ -15,37 +14,39 @@ public class Participant {
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private Long participantId;
 
-    @Column(nullable = false)
+    @Column (nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column (nullable = false)
     private String lastName;
 
-    @Column(nullable = false)
+    @Column (nullable = false)
     private String nacionality;
 
-    @Column(nullable = false)
+    @Column (nullable = false)
     private Integer totalPoints;// Este va a variar
 
-    @Column(nullable = false)
+    @Column (nullable = false)
     private Integer age;
 
-    @Column
+    @Column (nullable = false)
     private String area;
 
-    @Column
+    @Column (nullable = false)
     private boolean certificateReached = false;
 
-    @Column
-    private Integer certificateReachedPoints;
-
-    @Column
+    @Column (nullable = false)
     private boolean specialEventAccess = false;
 
-    @Column
-    private Integer specialEventAccessPoints;
-
-    public Participant(String name, String lastName, String nacionality, Integer totalPoints, Integer age, String area, Integer certificateReachedPoints, Integer specialEventAccessPoints) {
+    public Participant(String name, String lastName, String nacionality, Integer totalPoints, Integer age, String area, boolean certificateReached, boolean specialEventAccess) {
+        this.name = name;
+        this.lastName = lastName;
+        this.nacionality = nacionality;
+        this.totalPoints = totalPoints;
+        this.age = age;
+        this.area = area;
+        this.certificateReached = certificateReached;
+        this.specialEventAccess = specialEventAccess;
     }
 
     public void usarPuntos(int puntos) {
@@ -66,14 +67,14 @@ public class Participant {
     }
 
     public boolean certificateReached() {
-        if (totalPoints >= certificateReachedPoints){
-            System.out.println("Desbloqueaste Logro: Certificado.");
+        if (totalPoints >= 25){
+            System.out.println("✅ Desbloqueaste Logro: Certificado.");
         }
             return certificateReached = true;
     }
         public boolean specialEventAccess() {
-            if (totalPoints >= specialEventAccessPoints){
-                System.out.println("Desbloqueaste Logro: Acceso a Eventos Especiales.");
+            if (totalPoints >= 30){
+                System.out.println("✅ Desbloqueaste Logro: Acceso a Eventos Especiales.");
             }
                 return specialEventAccess = true;
         }

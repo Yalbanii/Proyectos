@@ -31,8 +31,8 @@ public final class CertificateReachedEvent {
         if (participant == null) return;
 
         // 1. Acumular los puntos para certificado
-        int currentCertificatePoints = participant.getCertificateReachedPoints() + event.getPointsEarned();
-        participant.setCertificateReachedPoints(currentCertificatePoints);
+        int currentCertificatePoints = participant.getTotalPoints() + event.getPointsEarned();
+        participant.setTotalPoints(currentCertificatePoints);
 
         // 2. VERIFICAR la condición de los 25 puntos
         if (currentCertificatePoints >= 25 && !participant.isCertificateReached()) {
